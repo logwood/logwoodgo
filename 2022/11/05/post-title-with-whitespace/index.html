@@ -86,11 +86,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="作为初试博客的萌新，我一直对网页的部署有一定的恐惧，我一直认为这一定是一个很艰难的事情，感谢AnFrank师兄对我的帮助，让我能够成功的踏入这一领域。下面我就说一下我遇到的问题 1.初识GitHub Pages首先我们先注册一个账号，设置一下rsa，使用一下ssh -T命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI&#x2F;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://logwood.github.io/logwoodgo/2022/11/05/post-title-with-whitespace/tea.3dm">
 <meta property="article:published_time" content="2022-11-05T08:02:59.000Z">
-<meta property="article:modified_time" content="2022-11-15T12:28:14.709Z">
+<meta property="article:modified_time" content="2022-11-16T13:57:29.364Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="blogtry">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://logwood.github.io/logwoodgo/2022/11/05/post-title-with-whitespace/tea.3dm">
 
 
 
@@ -321,10 +323,51 @@
 
       
         <p>作为初试博客的萌新，我一直对网页的部署有一定的恐惧，我一直认为这一定是一个很艰难的事情，感谢<a target="_blank" rel="noopener" href="https://enfangzhong.github.io/">AnFrank</a>师兄对我的帮助，让我能够成功的踏入这一领域。下面我就说一下我遇到的问题</p>
-<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作</p>
+<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作<img src="/logwoodgo/2022/11/05/post-title-with-whitespace/tea.3dm"></p>
 <h2 id="2-why-Hexo"><a href="#2-why-Hexo" class="headerlink" title="2.why Hexo"></a>2.why Hexo</h2><p>我们可以发现hexo作为一个帮助打包的平台，其渲染，操作的能力是比较好的，简单来说就是因为，他简单，我们通过访问hexo的文档，按照文档的内容进行一个快速部署，然后就结束辣。</p>
 <h2 id="3-land-bad-next-win"><a href="#3-land-bad-next-win" class="headerlink" title="3.land bad next win"></a>3.land bad next win</h2><p>我们载入这个文件会发现好丑，这就对了，因为我们使用的是landscape，这是默认的设置，不丑才不正常（bushi），我们进行一下修改，我们可以发现</p>
-
+<div id="binft"></div>
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["哈哈哈哈哈，郭神是智障"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
       
     </div>
     
@@ -363,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/logwoodgo/2022/11/19/computer-study/" rel="prev" title="computer study">
+                computer study <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -439,7 +486,7 @@
               
                 <a href="/logwoodgo/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -699,3 +746,4 @@
 <script src="/logwoodgo/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/logwoodgo/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="js/src/love.js"></script>
+<script type="text/javascript" src="js/src/funny.js"></script>

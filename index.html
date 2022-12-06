@@ -249,6 +249,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://logwood.github.io/logwoodgo/2022/11/19/computer-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logwoodgo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/logwoodgo/2022/11/19/computer-study/" itemprop="url">computer study</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-19T13:49:29+08:00">
+                2022-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="8086与模型机"><a href="#8086与模型机" class="headerlink" title="8086与模型机"></a>8086与模型机</h1><p>8086周期: 时钟周期<em>4–&gt;总线周期</em>several–&gt;指令周期<br>模型机:时钟周期<em>1–&gt;总线周期</em>several–&gt;工作周期<br>拓展同步总线:允许时钟周期可变<br>总线特点:分时共享<br>8086与8088的”1””0”访内存<br>CPU-&gt;BIU-&gt;队列-&gt;EU电路控制<br>SP为最大值时，堆栈为空，否则堆栈全满<br>SP-1是堆栈的首值<br>DB在存储器这里要分成两个0<del>3 4</del>7<br>2开1闭是”1”，1开2闭是”0“<br>读是W与W非都置为高，哪边过电流就可以判断<br>写是W非高，W低”1“否则为0<br>如郭T3状态READY为低电平，之后插入Tw,控制信号和数据信号不变。<br>存储器执行速度比立即数要快<br>只有SI,DI,BX,BP才能存放间址，即加上[],值得注意,除此之外，{si,di},{bx,bp}不能同时使用，除此之外值得注意的是存储器单元之间不能传送(传送的话，时间不够用),mov [] , []是不存在的,cs只能给，不能要</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mov al,2AH</span><br><span class="line">mov cx,100</span><br><span class="line">mov di,1010</span><br><span class="line">next: mov [di],al</span><br><span class="line">      inc di</span><br><span class="line">      dec cx</span><br><span class="line">      jnz next</span><br><span class="line">      HLT</span><br></pre></td></tr></table></figure>
+<p><img src="/logwoodgo/2022/11/19/computer-study/hehe.png"></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>如果再20000H，不会出现覆盖吗？</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://logwood.github.io/logwoodgo/2022/11/05/post-title-with-whitespace/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -321,10 +444,51 @@
         
           
             <p>作为初试博客的萌新，我一直对网页的部署有一定的恐惧，我一直认为这一定是一个很艰难的事情，感谢<a target="_blank" rel="noopener" href="https://enfangzhong.github.io/">AnFrank</a>师兄对我的帮助，让我能够成功的踏入这一领域。下面我就说一下我遇到的问题</p>
-<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作</p>
+<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作<img src="/logwoodgo/2022/11/05/post-title-with-whitespace/tea.3dm"></p>
 <h2 id="2-why-Hexo"><a href="#2-why-Hexo" class="headerlink" title="2.why Hexo"></a>2.why Hexo</h2><p>我们可以发现hexo作为一个帮助打包的平台，其渲染，操作的能力是比较好的，简单来说就是因为，他简单，我们通过访问hexo的文档，按照文档的内容进行一个快速部署，然后就结束辣。</p>
 <h2 id="3-land-bad-next-win"><a href="#3-land-bad-next-win" class="headerlink" title="3.land bad next win"></a>3.land bad next win</h2><p>我们载入这个文件会发现好丑，这就对了，因为我们使用的是landscape，这是默认的设置，不丑才不正常（bushi），我们进行一下修改，我们可以发现</p>
-
+<div id="binft"></div>
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["哈哈哈哈哈，郭神是智障"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
           
         
       
@@ -443,19 +607,13 @@
       
         
           
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <h1 id="Table类的说明"><a href="#Table类的说明" class="headerlink" title="Table类的说明"></a>Table类的说明</h1><h2 id="Table-Structure"><a href="#Table-Structure" class="headerlink" title="Table_Structure"></a>Table_Structure</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">graph TD</span><br><span class="line"></span><br><span class="line">A&#123;Table&#125;</span><br><span class="line"></span><br><span class="line">A --&gt;|Class| B[Table]</span><br><span class="line"></span><br><span class="line">A --&gt; |Struct|J[typee]</span><br><span class="line"></span><br><span class="line">J --&gt;|Variables| E[type--列的类型]</span><br><span class="line"></span><br><span class="line">J --&gt;|Variables| H[id--某个列的名称]</span><br><span class="line"></span><br><span class="line">J --&gt;|Variables| K[Restrict--某个列的约束条件]</span><br><span class="line"></span><br><span class="line">J --&gt;|继承|I[Column] --&gt;|Variables|L[Columns--这个列的信息]</span><br><span class="line"></span><br><span class="line">B --&gt;|Constructer|C[std::string Base_Path, std::string Table_Name, std::vector&lt;Typee&gt; typs]</span><br><span class="line"></span><br><span class="line">C --&gt;|CheckRightness|D[std::vector&lt;std::string&gt; &amp;infos]</span><br><span class="line"></span><br><span class="line">D --&gt;|InsertIntoTail|G[std::vector&lt;std::string&gt; infos];</span><br><span class="line"></span><br><span class="line">E --&gt;|WriteInBinary|Z[没有函数]</span><br><span class="line"></span><br><span class="line">K --&gt;|ReadInBinary|L[没有参数]</span><br><span class="line"></span><br><span class="line">B --&gt;|Variables|P[Column_Info]</span><br><span class="line"></span><br><span class="line">B --&gt;|Variable|O[File_Path]</span><br><span class="line"></span><br><span class="line">B --&gt;|Variable|Q[Table_is]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><ol>
+<li>table的构造函数的参数一定不能为空，一定不能为空。</li>
+<li>string类的结构与vector类的stl函数有诸多限制，这点一定要注意。</li>
+<li>WriteInBinary与InsertToTail应该只需要调用，而不需要充分了解。</li>
+<li>有什么需要就跟我说。</li>
+</ol>
 
           
         
@@ -537,7 +695,7 @@
               
                 <a href="/logwoodgo/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -777,3 +935,4 @@
 <script src="/logwoodgo/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/logwoodgo/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="js/src/love.js"></script>
+<script type="text/javascript" src="js/src/funny.js"></script>
