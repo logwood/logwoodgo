@@ -3,12 +3,12 @@ var titleTime;
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = 'ヽ(●-`Д´-)ノ你丑你就走！';
+         document.title = 'ヽ(●-`Д´-)ノ崩溃辣！';
          clearTimeout(titleTime);
      }
      else {
-         $('[rel="icon"]').attr('href', "/images/favicon-16x16-next.png");
-         document.title = 'ヾ(Ő∀Ő3)ノ你帅就回来！' + OriginTitle;
+         $('[rel="icon"]').attr('href', "/img/trhx2.png");
+         document.title = 'ヾ(Ő∀Ő3)ノ我又好了，气死你！' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
          }, 2000);
