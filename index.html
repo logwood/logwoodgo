@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://logwood.github.io/index.html">
+<meta property="og:url" content="https://47.106.205.40/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="https://logwood.github.io/"/>
+  <link rel="canonical" href="https://47.106.205.40/"/>
 
 
 
@@ -249,7 +249,281 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://logwood.github.io/logwoodgo/2022/11/19/computer-study/">
+    <link itemprop="mainEntityOfPage" href="https://47.106.205.40/logwoodgo/2023/03/17/hahah/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logwoodgo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/logwoodgo/2023/03/17/hahah/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-17T09:47:11+08:00">
+                2023-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h1><p>$对于一个阶为a的B+树$</p>
+<ul>
+<li>$ 1.对于每一个形如：&lt;P_1,K_1,P_2,K_2,P_3,K_3,……,P_c&gt;的节点，其中c\leqslant a,每个P_i表示指向该子树根节点的指针，K_i表示内部关键值$</li>
+<li>$ 2.对于每一个内部结点中的关键字值均满足：K_1\leqslant K_2\leqslant K3…. \leqslant K_n$</li>
+<li>$ 3.对于一个位于 所指向的子树中的结点而言，满足$<ul>
+<li>1.$当1&lt;i&lt;c时，均有 $ K<del>i-1</del> $\leqslant X &lt; K_i $ </li>
+<li>2.$当i=1时，均有 X\leqslant$ K<del>1</del> $ $ </li>
+<li>3.$当i=c时，均有 X&gt;$ K<del>k</del> $ $</li>
+</ul>
+</li>
+<li>$ 4.每一个内部结点最多有a个指向子树的指针，即c最大取a$</li>
+<li>$ 5.根结点至少包含两个指向子树的结点指针，即对于根结点而言2 \leqslant c \leqslant a除了根之外的每个结点都包含最少 ceil(a/2)个指向子树的指针。$ </li>
+<li>$ 6.如果任意一个内部结点包含 c 个指向孩子结点的指针且c\leqslant a，则该结点包含c-1的关键字。$<h1 id="B-树的优点"><a href="#B-树的优点" class="headerlink" title="B+树的优点"></a>B+树的优点</h1>$1.同为k层的 B-树和 B+树，B+树可以存储更多的结点元素，更加 “矮胖”。这也是 B+ 树最大的优势所在，极大地改善了B-树的查找效率。对于同样多的记录，B+树的高度会更矮，并且指针的出现可以帮助 B+树快速访问磁盘记录且效率非常高。总之，就是 B+树比 B-树更加好，B+树的磁盘 I/O会更少，相比于 B-树的中序遍历，B+树只需要像遍历单链表一样扫描一遍叶子结点。$<br>$2.与红黑树，平衡二叉树相比，由于树的深度小，可以减小I/O次数$<h1 id="红黑树的实现"><a href="#红黑树的实现" class="headerlink" title="红黑树的实现"></a>红黑树的实现</h1></li>
+<li>1.插入<pre><code>- 正常情况
+- 处理失败，需要进行分裂
+- 处理到根节点，需要增加层数
+</code></pre>
+</li>
+<li>2.删除<pre><code>- 正常情况
+- 处理失败，需要借用其他节点
+- 节点太少，需要合并
+- 合并后上一层节点变少，需要重复上述过程
+- 处理到根节点，需要减少层数。
+</code></pre>
+</li>
+<li>3.tip:B+树的节点处理是从下到上的，这一点需要注意</li>
+<li>4.遍历<pre><code>- 正常遍历
+- 存储遍历
+</code></pre>
+</li>
+<li>5.查询恢复节点</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://47.106.205.40/logwoodgo/2022/12/06/studymath/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logwoodgo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/logwoodgo/2022/12/06/studymath/" itemprop="url">studymath</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-06T21:13:39+08:00">
+                2022-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>$ F=  $ $\frac {\sum_1^n((X_i-μ_i)/σ_1^2)/n_1} {\sum_1^n((Y_i-μ_i)/σ_2^2)/n_2}$~$F(n_1,n_2)$</p>
+<p>$ F=  $ $\frac {\sum_1^n((X_i-\overline{X})/σ_1^2)} {\sum_1^n((Y_i-\overline{Y})/σ_2^2)}$~$F(n_1-1,n_2-1)$</p>
+<p>$ F = $ $\frac {(\overline{X}-\overline{Y})-(μ_1-μ_2)} {\sqrt{\frac{σ1^2}{n_1}+\frac{σ2^2}{n_2}}}$~$N(0,1)$</p>
+<p>$ F= $ $\frac {(\overline{X}-\overline{Y})-(μ_1-μ_2)} {S_W\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$ ~ $t (n_1+n_2 - 2)$<br>$S_W= \sqrt \frac {(n_1-1)S_1^2+(n_2-1)S_2^2} {n_1+n_2-2} $</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://47.106.205.40/logwoodgo/2022/11/19/computer-study/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -320,9 +594,12 @@
       
         
           
-            <h1 id="8086与模型机"><a href="#8086与模型机" class="headerlink" title="8086与模型机"></a>8086与模型机</h1><p>8086周期: 时钟周期<em>4–&gt;总线周期</em>several–&gt;指令周期<br>模型机:时钟周期<em>1–&gt;总线周期</em>several–&gt;工作周期<br>拓展同步总线:允许时钟周期可变<br>总线特点:分时共享<br>8086与8088的”1””0”访内存<br>CPU-&gt;BIU-&gt;队列-&gt;EU电路控制<br>SP为最大值时，堆栈为空，否则堆栈全满<br>SP-1是堆栈的首值<br>DB在存储器这里要分成两个0<del>3 4</del>7<br>2开1闭是”1”，1开2闭是”0“<br>读是W与W非都置为高，哪边过电流就可以判断<br>写是W非高，W低”1“否则为0<br>如郭T3状态READY为低电平，之后插入Tw,控制信号和数据信号不变。<br>存储器执行速度比立即数要快<br>只有SI,DI,BX,BP才能存放间址，即加上[],值得注意,除此之外，{si,di},{bx,bp}不能同时使用，除此之外值得注意的是存储器单元之间不能传送(传送的话，时间不够用),mov [] , []是不存在的,cs只能给，不能要</p>
+            <h1 id="8086与模型机"><a href="#8086与模型机" class="headerlink" title="8086与模型机"></a>8086与模型机</h1><p>时钟周期，节拍，脉冲是三级时序<br>8086周期: 时钟周期<em>4–&gt;总线周期</em>several–&gt;指令周期<br>模型机:时钟周期<em>1–&gt;总线周期</em>several–&gt;工作周期<br>工作脉冲是最小的时间周期<br>微命令*several–&gt;微指令(一步操作)*several–&gt;微程序<br>拓展同步总线:允许时钟周期可变<br>总线特点:分时共享<br>8086与8088的”1””0”访内存<br>CPU-&gt;BIU-&gt;队列-&gt;EU电路控制<br>SP为最大值时，堆栈为空，否则堆栈全满<br>SP-1是堆栈的首值<br>DB在存储器这里要分成两个0<del>3 4</del>7<br>2开1闭是”1”，1开2闭是”0“<br>读是W与W非都置为高，哪边过电流就可以判断<br>写是W非高，W低”1“否则为0<br>如郭T3状态READY为低电平，之后插入Tw,控制信号和数据信号不变。<br>存储器执行速度比立即数要快<br>只有SI,DI,BX,BP才能存放间址，即加上[],值得注意,除此之外，{si,di},{bx,bp}不能同时使用，除此之外值得注意的是存储器单元之间不能传送(传送的话，时间不够用),mov [] , []是不存在的,cs只能给，不能要<br>中断响应必须满足以下条件：① 该中断已经被开放（当然，总中断开放是前提条件）；② CPU 此时 没有响应同级或更高优先级的中断；③ 当前正处于所执行指令的最后一个机器周期；④ 正在执行的指令不 是 RETI 或者是访问 IE、IP 的指令，否则必须再执行另外一条指令后才能响应。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">LEA SI,BUF</span><br><span class="line">MOV CX,100</span><br><span class="line">AGAIN : MOV DX,03FBH</span><br><span class="line">WAITT：IN AL,DX</span><br><span class="line">TEST AL,20H</span><br><span class="line">JNZ WAITT</span><br><span class="line">MOV DX,03F8H</span><br><span class="line">MOV AL，[SI]</span><br><span class="line">OUT DX，AL</span><br><span class="line">INC SI</span><br><span class="line">LOOP AGAIN</span><br><span class="line">HLT</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mov al,2AH</span><br><span class="line">mov cx,100</span><br><span class="line">mov di,1010</span><br><span class="line">next: mov [di],al</span><br><span class="line">      inc di</span><br><span class="line">      dec cx</span><br><span class="line">      jnz next</span><br><span class="line">      HLT</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MOV DX, 83FCH</span><br><span class="line">IN AL, DX</span><br><span class="line">AND AL, 0FFH</span><br><span class="line">JZ NEXT1</span><br><span class="line">...................</span><br><span class="line">JMP NEXT2</span><br><span class="line">NEXT1:.............</span><br><span class="line">NEXT2:.............</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="/logwoodgo/2022/11/19/computer-study/hehe.png"></p>
+<h1 id="I-O与中断"><a href="#I-O与中断" class="headerlink" title="I/O与中断"></a>I/O与中断</h1><p>一组能为多个部件分时共享的信息传送线路叫做总线<br>异步控制方式-&gt;异步应答应该是值得注意的一个点<br>接口的主要功能:数据缓冲，寻址<br>屏蔽字在CPU内</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>如果再20000H，不会出现覆盖吗？</p>
 
           
@@ -372,7 +649,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://logwood.github.io/logwoodgo/2022/11/05/post-title-with-whitespace/">
+    <link itemprop="mainEntityOfPage" href="https://47.106.205.40/logwoodgo/2022/11/05/post-title-with-whitespace/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -444,7 +721,7 @@
         
           
             <p>作为初试博客的萌新，我一直对网页的部署有一定的恐惧，我一直认为这一定是一个很艰难的事情，感谢<a target="_blank" rel="noopener" href="https://enfangzhong.github.io/">AnFrank</a>师兄对我的帮助，让我能够成功的踏入这一领域。下面我就说一下我遇到的问题</p>
-<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作<img src="/logwoodgo/2022/11/05/post-title-with-whitespace/tea.3dm"></p>
+<h2 id="1-初识GitHub-Pages"><a href="#1-初识GitHub-Pages" class="headerlink" title="1.初识GitHub Pages"></a>1.初识GitHub Pages</h2><p>首先我们先注册一个账号，设置一下rsa，使用一下<code>ssh -T</code>命令做一下确定，然后正式开始，其实github Pages就是一个部署网页的位置，通过吸收XML文件的配置进行部署，这一点跟CI/CD十分相似，显然，我什么都不需要做，Github都帮我做好了，我们只需要继续进行，使用hexo进行下一步操作 <a href="studymath.md">hello-world.md</a></p>
 <h2 id="2-why-Hexo"><a href="#2-why-Hexo" class="headerlink" title="2.why Hexo"></a>2.why Hexo</h2><p>我们可以发现hexo作为一个帮助打包的平台，其渲染，操作的能力是比较好的，简单来说就是因为，他简单，我们通过访问hexo的文档，按照文档的内容进行一个快速部署，然后就结束辣。</p>
 <h2 id="3-land-bad-next-win"><a href="#3-land-bad-next-win" class="headerlink" title="3.land bad next win"></a>3.land bad next win</h2><p>我们载入这个文件会发现好丑，这就对了，因为我们使用的是landscape，这是默认的设置，不丑才不正常（bushi），我们进行一下修改，我们可以发现</p>
 <div id="binft"></div>
@@ -536,7 +813,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://logwood.github.io/logwoodgo/2022/11/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://47.106.205.40/logwoodgo/2022/11/05/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -695,7 +972,7 @@
               
                 <a href="/logwoodgo/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -746,7 +1023,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
